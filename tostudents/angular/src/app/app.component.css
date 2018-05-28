@@ -6,9 +6,79 @@
 .status {
     display: flex;
     justify-content: space-between;
+  background-color: yellow;
+  border-bottom: white 2px dashed;
+  padding: 5px;
 }
 
 .error {
     color: red;
     text-align: center;
+}
+.friends{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+  flex-wrap: wrap;
+}
+.nameBox{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 100%;
+  background-color: greenyellow;
+  color: ghostwhite;
+  padding: 2px;
+}
+.descBox{
+  width: 100%;
+  background-color: grey;
+  margin-bottom: 15px;
+  color: ghostwhite;
+  padding: 5px;
+}
+input{
+  background-color: greenyellow;
+  color: black;
+  border: solid black 1px;
+  border-radius: 8px;
+  padding: 2px;
+}
+input[type=submit]{
+  background-color: orangered;
+  color: ghostwhite;
+  border: solid black 1.5px;
+  border-radius: 8px;
+  padding: 2px 15px;
+  box-shadow: grey 2px 2px 2px;
+}
+input:focus, button:focus{
+  outline-style: none;
+}
+button {
+  background-color: orangered;
+  color: ghostwhite;
+  border: solid black 2px;
+  border-radius: 8px;
+  padding: 2px 15px;
+  box-shadow: grey 2px 2px 2px;
+}
+.userId{
+  font-style: italic;
+  color: grey;
+}
+.userResult{
+  font-weight: bold;
+  color: orangered;
+  text-shadow: black 1.5px 1.5px 1.5px;
+}
+img {
+  height: 100px;
+  width: 100px;
+  border: solid 1.5px black;
+  border-radius: 8px 50% 50% 8px;
+  overflow: hidden;
+  box-shadow: grey 2px 2px 2px;
+  margin-bottom: 2px;
 }

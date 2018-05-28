@@ -72,7 +72,7 @@ export class AuthService {
       localStorage.setItem('user', this.token);
       this.router.navigate(['/friends']);
      }, (error) => {
-       console.log(error);
+       console.error('Failed to login', error);
      });
      console.log(status);
     // Make sure to handle a successful authentication by storing and also decoding the returned token, as well as
@@ -85,6 +85,7 @@ return ob;
     this._user = null;
     localStorage.removeItem('user');
     this.router.navigate(['/']);
+    this._friends = null;
     // logout the current user by removing the corresponding token.
   }
 
@@ -98,12 +99,21 @@ return ob;
   };
 
   getResource(resource): Observable<any> {
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.token}`
+      })
+    };
+    const ob = this.http.get<any>(resource, options);
+      ob.subscribe((res) => {
+      this._friends = res;
+    });
     // invoke a protected API route by including the Authorization header and return an Observable.
 
     // If e.g. invoking /api/friends, the 'resource' parameter should equal 'friends'.
 
     // return ...
-    return;
+    return ob;
   }
 }
 

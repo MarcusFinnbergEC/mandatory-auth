@@ -5,7 +5,7 @@
 
   <!-- Complete this markup for showing the status bar correctly, depending on whether or not the user is authenticated. -->
   <div class="status">
-    <span>User ID: {{ authService._user && authService._user.name !== undefined ? authService._user.name : 'N/A' }}</span>
+    <span class="userId">User ID: <span class="userResult">{{ authService._user && authService._user.name !== undefined ? authService._user.name : 'N/A' }}</span></span>
     <button (click)="testApi()">Test API</button>
     <button *ngIf="authService._user" (click)="logout()">Logout</button>
   </div>
@@ -18,5 +18,18 @@
     <input type="password" id="password" [(ngModel)]="credentials.password" name="password"> <br><br>
     <input type="submit" value="Login" [disabled]="!validForm()">
   </form>
-  <router-outlet *ngIf="authService._user"></router-outlet>
+  <div class="friends" *ngFor="let friend of myFriends">
+    <div class="nameBox">
+      <img src="{{ friend.pic }}" alt="picture">
+      <h2>
+        {{ friend.name | uppercase }}
+      </h2>
+    </div>
+    <div class="descBox">
+      <em>
+        {{ friend.myDesc }}
+      </em>
+    </div>
 </div>
+</div>
+
